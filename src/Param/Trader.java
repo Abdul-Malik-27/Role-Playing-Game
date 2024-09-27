@@ -1,7 +1,7 @@
 package Param;
 import java.util.Scanner;
 
-public class Trader implements Seller {
+public class Trader {
     Scanner sc = new Scanner(System.in);
     public void inventory(Parameters parameters) {
         System.out.println("Здравствуй герой, покупай что хочешь, для тебя у меня скидки 10% на все !!!");

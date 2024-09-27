@@ -3,6 +3,7 @@ package Param;
 import java.util.Scanner;
 
 public class Main {
+    private static int level = 1;
     private static Scanner sc;
     private static Battle battle;
     private static Parameters player;
@@ -29,6 +30,12 @@ public class Main {
         System.out.println("5. Сразится с драконом");
     }
 
+    private static void nextLevel() {
+        if (player.getXp() >= 100) {
+            level++;
+            player.setXp(player.getXp()-100);
+        }
+    }
     public static void command(String play) {
 
         int power = 1 + (int) (Math.random() * 60);
@@ -39,8 +46,7 @@ public class Main {
             System.out.println("Этому миру нужен герой... " + player.getName());
             navigation();
         }
-
-
+        nextLevel();
         switch (play) {
             case "1" -> {
                 trader.inventory(player);
@@ -116,6 +122,7 @@ public class Main {
 
     private static void specifications() {
         System.out.println("*******  ХАРАКТЕРИСТИКИ  *******");
+        System.out.println("Уровень: " + level);
         System.out.println("Золото: " + player.getGold() + "\nОпыт: " + player.getXp());
         System.out.println("Здоровье: " + player.getHP() + "\nСила: " + player.getPower());
         System.out.println("--------------------------------");
