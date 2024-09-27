@@ -26,8 +26,9 @@ public class Main {
         System.out.println("1. К торговцу");
         System.out.println("2. В тёмный лес");
         System.out.println("3. Характеристики");
-        System.out.println("4. На выход");
-        System.out.println("5. Сразится с драконом");
+        System.out.println("4. Сразится с драконом");
+        System.out.println("5. На выход");
+
     }
 
     private static void nextLevel() {
@@ -59,10 +60,11 @@ public class Main {
                 specifications();
                 navigation();
             }
-            case "4" -> System.exit(1);
-            case "5" -> {
-                commitFight("5");
+            case "4" -> {
+                commitFight("4");
             }
+            case "5" -> System.exit(1);
+
             case "да" -> command("2");
             case "нет" -> {
                 navigation();
@@ -87,7 +89,7 @@ public class Main {
             @Override
             public void fightLost() {
                 System.out.println("Герой проиграл эту битву");
-                command("4");
+                command("5");
             }
         });
     }
@@ -99,7 +101,7 @@ public class Main {
 
     private static Parameters createMonster(String s) {
 
-        if (s.equals("5")) {
+        if (s.equals("4")) {
                 int power = 500 + (int) (Math.random() * 500);
                 int dexterity = (int) (Math.random() * 50);
                 int xp = 500 + (int) (Math.random() * 500);
